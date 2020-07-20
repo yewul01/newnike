@@ -175,11 +175,27 @@ h1 img { width:280px }
     /* em은 인라인 성격이기 때문에 tranform이 먹히지 않는다.  */ 
 }
 
-.slide .btnContents { 
+.side .btnContents { 
     position: absolute; 
     bottom: 40px; 
-    left: 0; 
+    left: 200px; 
     color: #b9fb05;
     font-size: 60px;
     transform: skew(40deg);
+    width: 150px;
+    height: 50px;
 }
+.side .btnContents i { 
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    animation: arrowAni 1.5s infinite linear ; 
+}
+.side .btnContents i:nth-child(1) { animation-delay: 0; }
+.side .btnContents i:nth-child(2) { animation-delay: 0.5s; }
+.side .btnContents i:nth-child(3) { animation-delay: 1s; }
+@keyframes arrowAni {  
+    0% {  }
+    100% { transform: translate(-150px) scale(1.4); opacity: 0; }
+}
+.side:hover .btnContents { left: 700px; }
