@@ -1,124 +1,185 @@
 @charset "utf-8";
 @import url('https://fonts.googleapis.com/css2?family=Monoton&family=Play:wght@400;700&display=swap');
 
-/*    Reset CSS  */
+
 * { margin:0;  padding:0; }
+
 ol,ul { list-style: none; }
-a { text-decoration:none; color: inherit}
-img { border:0; vertical-align: middle; }
-body, html { 
-    width: 100%; 
-    height: 100%; 
-    position: fixed; 
-    background: #111;
-}
+a { text-decoration:none; color:inherit }
+img { border:0; vertical-align:middle }
+
 .blind { 
-    position: absolute; 
-    width: 0; 
-    height: 0;
-    overflow: hidden; 
-    line-height: 0;
-    text-indent: -9999px; 
+    position:absolute; 
+    width:0; 
+    height:0;
+    overflow:hidden; 
+    font-size:0; 
+    line-height:0; 
+    text-indent:-99999px; 
+}
+body, html { 
+    width:100%; 
+    height:100%;
+    position:fixed;
+    background:#111 
 }
 .vid { 
-    width: 100%; 
-    height: 100%; 
-    position: fixed;
-    top: 0; 
-    left: 0;
+    width:100%; 
+    height:100%; 
+    position:fixed; 
+    top:0; 
+    left:0; 
 }
 .vid video { 
-    min-width: 100%; 
-    min-height: 100%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); 
+    min-width:100%; 
+    min-height:100%;
+    position:absolute; 
+    top:50%; 
+    left:50%;
+    transform:translate(-50%, -50%) 
 }
 .header { 
-    width: 700px; 
-    height: 100%; 
-    position: fixed; 
-    left: -420px;
-    background: linear-gradient(-45deg, #e6fc55,#b9fb05,#97e031);
-    transform: skew(-40deg);
+    width:700px; 
+    height:100%; 
+    position:fixed; 
+    left:-420px; 
+    background:linear-gradient(-45deg, #e6fc55, #b9fb05, #97e031);
+    transform:skew(-40deg) 
+}    
+h1 { 
+    position:absolute; 
+    top:40px; 
+    right:150px;
+    transform:skew(40deg) 
+}
+h1 img { width:280px }    
+.nav { 
+    position:absolute; 
+    top:200px; 
+    right:0;
+    width:220px; 
+}
+.nav .depth1 > li { 
+    height:50px; 
+    line-height:50px; 
+    font:bold 18px/3 'play'; 
+    color:#222;
+    text-align:right; 
+    position:relative; 
+    transition:all 0.3s 
+}
+.nav .depth1 > li:hover { color:#fff; background:#000; }
+.nav .depth1 > li:first-child { background:#000; color:#fff }  
+.nav .depth1 > li > a { display:block; padding-right:40px  }    
+.nav .depth1 > li > a > span { transform:skew(40deg); display:inline-block  }  
+.nav .depth1 > li > a > span > i { margin-right:10px }
+.nav .depth2 { 
+    position:absolute;
+    top:0; 
+    left:0%; 
+    width:80%; 
+    color:#fff; 
+    text-align:center; 
+    opacity:0; 
+    transition:all 0.5s 
+}
+.nav .depth1 > li:first-child .depth2 { left:95%; opacity:0.8 }    
+.nav .depth1 > li:hover .depth2 { opacity:0.8; left:95%;  }    
+.nav .depth2 > li { 
+    background:#222;
+    border-bottom:1px solid #b9fb05;
+    margin-bottom:3px; 
+    font:bold 16px/2.5 'arial'; 
+}
+.nav .depth2 > li:hover { background:#b9fb05; color:#222 } 
+.nav .depth1 > li:first-child .depth2 > li:hover { background:#222; color:#fff;  }
+.nav .depth2 > li > a { display:block }
+.nav .depth2 > li > a > span { transform:skew(40deg); display:inline-block }
+.sns { position:fixed; top:60px; right:50px }
+.sns li { 
+    display:inline-block;  
+    margin-left:20px; 
+    font-size:25px;  
+    color:#b9fb05; 
+    opacity:0.5;
+    transition:all 0.5s
+    /* font-size는 주변에 영향을 미치고 transform은 주변에 영향을 미치지 않는다. */ 
+}
+.sns li:hover { transform:scale(1.4); opacity:1  }    
+.sns li:hover { transform:scale(1.4); opacity:1  }  
+
+.txtBox { 
+    position:fixed; 
+    top:200px; 
+    right:70px; 
+    width:500px; 
+    height:240px; 
+}
+.tit { 
+    font-size:160px; 
+    font-family: 'Monoton', cursive;
+    color:#b9fb05;
+    position:absolute; 
+    top:0px; 
+    right:0px;
+    letter-spacing:-1px; 
+}   
+.tit em { font:50px 'Play', sans-serif; color:#fff }    
+.txt { 
+    position:absolute; 
+    bottom:0px; 
+    right:0px;
+    font:34px 'Play', sans-serif; 
+    color:#bbb; 
+    letter-spacing:-2px;
+}  
+.txt strong { 
+    font:34px arial; 
+    color:#b9fb05;
+    margin-left:20px 
+}           
+
+.side { 
+    position:fixed; 
+    top:0; 
+    right:-800px; 
+    width:800px; 
+    height:100%;
+    background:#111; 
+    opacity:0.5;
+    transform:skew(-40deg); 
+    transition:all 0.5s 
+}
+.side:hover { right:-500px; opacity:0.8 }    
+.side .con > p img { opacity:0.3 }    
+.side .con > p img:hover { opacity:1 }    
+.side .con { 
+    width:400px; 
+    height:100%;
+    position:absolute; 
+    left:135px; 
+    background:#000; 
+    transition:all 1s 
+}
+.side:hover .con { left:50px }  
+.side .con > p { position:absolute; left:250px; }      
+.side:hover .con > p { left:50px  }     
+.side .con > p:nth-child(1) { bottom:270px; transition:all 0.4s }     
+.side .con > p:nth-child(2) { bottom:160px; transition:all 0.8s }     
+.side .con > p:nth-child(3) { bottom:50px; transition:all 1.2s }   
+.side .con > p > em { 
+    font:bold normal 16px/1.7 arial;
+    color:#a0bd50; 
+    transform:skew(40deg);
+    display:inline-block;
+    /* em은 인라인 성격이기 때문에 tranform이 먹히지 않는다.  */ 
 }
 
-h1 { 
+.slide .btnContents { 
     position: absolute; 
-    top: 40px; 
-    right: 150px; 
+    bottom: 40px; 
+    left: 0; 
+    color: #b9fb05;
+    font-size: 60px;
     transform: skew(40deg);
 }
-h1 img { width: 280px; }
-.nav { 
-    position: absolute; 
-    top:300px; 
-    right: 0;
-    width: 220px; 
-}
-
-.nav .depth1 > li { 
-    height: 50px; 
-    line-height: 50px;
-    font: bold 18px/3 'Play'; 
-    color: #222;
-    text-align: right;
-    position: relative;
-    transition: all 0.3s; 
-}
-.nav .depth1 > li:hover { color: #fff; background: #000; }
-.nav .depth1 > li:first-child { background: #000; color: #fff;}
-.nav .depth1 > li > a { 
-    display: block; 
-    padding-right: 40px; 
-}    
-.nav .depth1 > li > a  span { transform: skew(40deg); display: inline-block;}
-.nav .depth1 > li > a  span > i { margin-right: 10px; }
-.nav .depth2 { 
-    position: absolute; 
-    top: 0; 
-    left: 0;
-    width: 80%;
-    color: #fff;
-    text-align: center;
-    opacity: 0;
-    transition: all 0.5s;
-}
-.nav .depth1 > li:first-child .depth2 { left: 95%; opacity: 0.7; }
-.nav .depth1 > li:hover .depth2 { 
-    opacity: 1;
-    left: 95%; 
-}
-.nav .depth2 > li { 
-    background: #111;
-    border-bottom: 1px solid #b9fb05;
-    margin-bottom: 3px;
-    font: bold 16px/2.5 'arial';
-} 
-.nav .depth2 > li:hover { background: #b9fb05; color: #222; }
-.nav .depth2 > li:first-child:hover {
-    background: #444;
-    color: #333;
-    opacity: 0.7;
-    transition: 0.5s;
-}
-.nav .depth2 > li > a { display: block; }
-.nav .depth2 > li > a > span { 
-    transform: skew(40deg); 
-    display: inline-block; 
-}
-.sns { position: fixed;top: 60px; right: 50px; }
-.sns li { 
-    display: inline-block; 
-    margin-left: 20px; 
-    font-size: 25px; 
-    color: #b9fb05; 
-    opacity: 0.5;}
-/* font-size는 주변에 영향을 미치고 transform은 주변에 영향을 미치지 않는다. */
-    .sns li:hover { 
-    transform: scale(1.4);
-    opacity: 1;
-}
-
-
